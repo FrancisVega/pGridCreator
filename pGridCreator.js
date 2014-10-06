@@ -38,15 +38,15 @@ function main() {
         this.containerWidth = gridObject["containerWidth"]
         this.ncols = gridObject["ncols"]
         this.glutter = gridObject["glutter"]
-        this.topMargin = gridObject["topMargin"]
         this.rightMargin = gridObject["rightMargin"]
-        this.bottomMargin = gridObject["bottomMargin"]
         this.leftMargin = gridObject["leftMargin"]
         this.centerGrid = gridObject["centerGrid"]
+        this.container = gridObject["container"]
         this.edgeGuides = gridObject["edgeGuides"]
         this.columsGuides = gridObject["columnsGuides"]
         this.glutterGuides = gridObject["glutterGuides"]
         this.groupName = gridObject["groupName"]
+
 
     }
 
@@ -213,6 +213,21 @@ function main() {
         this.g = docRef.layerSets.add()
         this.g.name = this.groupName
 
+        // Create container
+        if(this.container) {
+            this.createBitmapColumn(
+                'container',
+                [
+                    [0,0],
+                    [this.containerWidth,0],
+                    [this.containerWidth,this.docHeight],
+                    [0,this.docHeight]
+                ],
+                20,
+                "blue"
+            )
+        }
+
         // Create columns
         for(var i=0;i<this.ncols;i++) {
             this.createBitmapColumn('column', colpos[i], 30, "blue")
@@ -303,14 +318,13 @@ function main() {
                     "containerWidth": 1170,
                     "ncols": 12,
                     "glutter": 30,
-                    "topMargin": 0,
                     "rightMargin": 30,
-                    "bottomMargin": 0,
                     "leftMargin": 30,
                     "centerGrid": true,
                     "edgeGuides": true,
                     "columnsGuides": true,
                     "glutterGuides": true,
+                    "container":true,
                     "groupName": "grid"
                 }
 
@@ -320,14 +334,13 @@ function main() {
                     "containerWidth": 1170,
                     "ncols": 12,
                     "glutter": 30,
-                    "topMargin": 0,
                     "rightMargin": 0,
-                    "bottomMargin": 0,
                     "leftMargin": 0,
                     "centerGrid": true,
                     "edgeGuides": true,
                     "columnsGuides": true,
                     "glutterGuides": true,
+                    "container":true,
                     "groupName": "grid"
                 }
 
@@ -337,14 +350,13 @@ function main() {
                     "containerWidth": 640,
                     "ncols": 4,
                     "glutter": 40,
-                    "topMargin": 0,
                     "rightMargin": 40,
-                    "bottomMargin": 0,
                     "leftMargin": 40,
                     "centerGrid": true,
                     "edgeGuides": true,
                     "columnsGuides": true,
                     "glutterGuides": true,
+                    "container":true,
                     "groupName": "grid"
                 }
 
@@ -354,14 +366,13 @@ function main() {
                     "containerWidth": 1366,
                     "ncols": 12,
                     "glutter": 40,
-                    "topMargin": 0,
                     "rightMargin": 0,
-                    "bottomMargin": 0,
                     "leftMargin": 0,
                     "centerGrid": true,
                     "edgeGuides": false,
                     "columnsGuides": false,
                     "glutterGuides": true,
+                    "container":true,
                     "groupName": "grid"
                 }
 
